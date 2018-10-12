@@ -1,0 +1,98 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+#box1{
+	background-color: #CCC;
+	padding: 20px 0;
+}
+#chuangjian{
+  float: right;
+  background-color: #5CB85C;
+  color: #fff;
+  margin-top: 10px;
+}
+table a{
+  font-size: 0.6em;
+  color:#0090FF;
+}
+#case{
+	min-height: 420px;
+	padding: 40px 0;
+	background-color: #eee;
+	text-align: center;
+}
+#case h4,p{
+	color: #999;
+}
+#case .number{
+	font-size: 0.7em;
+	color: #666;
+}
+#case a{
+	color:#0090FF;
+	font-size: 0.7em;
+}
+.thumbnail{
+	min-height: 160px;
+}
+.thumbnail .btn-info{
+	margin-top: 40px;
+	margin-right: 20px;
+}
+.information1{
+	padding: 10px 0;
+	float: left;
+}
+.information2{
+	float: left;
+}
+.captio{
+	margin-bottom: 30px;
+	float: left;
+}
+.captio .btn-info{
+	font-size: 0.6em;
+}
+.optio a{
+	font-size: 0.6em;
+}
+.modity{
+	margin-right: 80px;
+}
+.enter{
+	margin-left: 130px;
+}
+.option a:hover{
+	text-decoration: none;
+}
+.member{
+	border-left: 1px solid #ccc;
+	height: 350px;
+}
+
+.info-content{
+	background-color: #fff;
+	margin:  0 0 7px 0;
+}
+#footer{
+  background-color: #ccc;
+  padding: 20px;
+  text-align: center;
+}

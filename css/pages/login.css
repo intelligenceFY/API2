@@ -1,0 +1,133 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background:url(../../images/bg3.jpg) no-repeat;
+	background-size:100% 100%; 
+	background-attachment: fixed;
+
+}
+.pagename{
+/*  color: #fff;*/
+  font-size: 1.4em;
+  font-family: Georgia;
+}
+
+a{
+	text-decoration: none;
+}
+.button{ 
+	border-radius: 8px;
+    width:100px;
+  	box-shadow:0px 0px  5px 2px #aaa;
+  	display:block;
+  	padding:10px;
+  	text-align:center;
+  	text-decoration:none;
+  	cursor:pointer;
+  	transition:background .3s;
+  	-webkit-transition:background .3s;
+}
+
+.button:hover{
+	box-shadow:0px 0px  5px 2px grey;
+}
+
+.top2{
+  margin-left: 515px;
+}
+
+.box1{
+	border-radius: 8px;
+	margin-top: 90px;
+	float: left;
+    margin-right: 90px;
+}
+
+#login{
+    width: 400px;
+	height: 440px;
+	position: absolute;
+	left: 50%;
+	top:60%;
+	margin-left: -200px;
+	margin-top: -220px;
+	border-radius: 8px;
+	box-shadow:0px 0px  5px 2px #aaa;
+}
+
+#triangle{
+  	width:0;
+  	margin-top: -12px;
+  	border-top:-12px solid transparent;
+  	border-right:12px solid transparent;
+  	border-bottom:12px solid #aaa;
+  	border-left:12px solid transparent;
+  	margin-left: 290px;
+}
+
+#login h1{
+  	padding:20px 0;
+  	font-size:140%;
+  	font-weight:300;
+  	color: white;
+    font-family: Georgia;
+    font-weight: bold;
+  	text-align:center;
+}
+
+form{
+  	padding:4% 5%;
+  	line-height: 70px;
+}
+
+input[type="text"],input[type="email"],input[type="password"]{
+  	outline:none;
+  	margin-bottom:4%;
+  	border:1px solid #E5E5E5;
+  	padding:2%;
+    border: none;
+  	font-size:95%;
+  	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+}
+
+input[type="button"]{
+	width: 120px;
+	height: 40px;
+  float: left;
+  	margin-left: 120px;
+  	margin-top: 30px;
+  	padding:3%;
+  	font-size:100%;
+  	cursor:pointer;
+  	transition:background .3s;
+  	-webkit-transition:background .3s;
+  	background: none;
+  	border:0;
+
+}
+
+input:hover{ 
+	border-color: #C9C9C9; 
+}
+
+
+.word2{
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+  margin-right: 15px;
+  color: #aaa;
+}
+
+.stats2{
+	color: red;
+	margin-left: 10px;
+}
+.stats3{
+	color: green;
+	margin-left: 10px;
+}

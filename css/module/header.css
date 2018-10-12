@@ -1,0 +1,31 @@
+body{
+	padding-top:50px;
+}
+.pagename{
+	font-size: 1.2em;
+}
+.navbar-inverse .glyphicon-search{
+	position: absolute;
+	top: 27%;
+	right: 10px;
+}
+.navbar-inverse input[type="text"]{
+	background-color: #333;
+	border: none;
+	color: #999;
+
+}
+.navbar-inverse button[type="submit"]{
+	background: none;
+	border: none;
+	color: #999;
+}
+.navbar-inverse form{
+	position: relative;
+
+}
+.navbar-inverse .glyphicon-search{
+	position: absolute;
+	top: 27%;
+	right: -1px;
+}

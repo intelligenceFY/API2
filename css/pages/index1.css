@@ -1,0 +1,26 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background:url(../../images/bg3.jpg) no-repeat;
+	background-size:100% 100%; 
+	background-attachment: fixed;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+a:hover{
+	color: grey;
+}
+
+.top1 ul li{
+	list-style: none;
+	float: right;
+	padding-right: 50px;
+	padding-top: 20px;
+}

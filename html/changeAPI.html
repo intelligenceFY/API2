@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>changeAPI</title>
+	<link rel="icon" href="../images/A_52px.png" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../css/pages/changeAPI.css">
+	<script type="text/javascript" src="./common/header.js" data-css="changeAPI" data-title="changeAPI"></script>
+</head>
+<body onload="ajax()">
+	<div id="box1">
+		<div class="container">
+			<div class="row">
+				<div class="container-fluid" style="padding: 0;">
+					<div class="col-md-10 col-xs-10">
+						<h4>项目名称</h4>
+						<span>项目描述：<span class="text-info">...第三方...第三方...第三方</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="box2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8" style="padding: 20px;height: 640px;">
+					<h2> 编辑接口</h2>
+					<textarea cols="50" placeholder="代码！">
+						
+					</textarea>
+
+				</div>
+				<div class="col-md-4 right">
+					<table rules="all">
+ 						<caption style="text-align: center;">创建接口</caption>
+  						<tbody>
+    						<tr>
+      							<td>名称</td>
+     							<td></td>
+    						</tr>
+    						<tr>
+								<td>方式</td>
+								<td><select onchange="sel(this)" id="mySelect"><option>get</option><option>post</option><option>put</option><option>delete</option></select></td>
+							</tr>
+							<tr>
+      							<td>URL</td>
+     							<td></td>
+    						</tr>
+							<tr>
+      							<td>描述</td>
+     							<td></td>
+    						</tr>
+    						<tr>
+								<td colspan="2"><div id="login_click2" class="login_click">  
+									<button type="button" class="btn btn-success">更新</button>
+								</div>
+								<div id="login_click1" class="login_click">  
+									<button type="button" class="btn btn-success">取消</button>
+								</div></td>
+								</tr>
+  						</tbody>
+					</table>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer id="footer">
+		<div class="container">
+			<p>
+				&copyAPI Management
+			</p>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+#box1{
+	background-color: #CCC;
+	padding: 20px 0;
+}
+#chuangjian{
+  float: right;
+  background-color: #5CB85C;
+  color: #fff;
+  margin-top: 10px;
+}
+table a{
+  font-size: 0.6em;
+  color:#0090FF;
+}
+
+#footer{
+  background-color: #ccc;
+  padding: 20px;
+  text-align: center;
+}

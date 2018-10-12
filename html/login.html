@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>login</title>
+	<link rel="icon" href="../images/A_52px.png" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../css/pages/login.css">
+	<script type="text/javascript" src="../js/pages/login.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery-3.1.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/nav.css">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="  background-color: transparent;border: none;">
+		<div class="container">
+			<a href="#" class="navbar-brand"><strong class="pagename">API Management</strong></a>
+			
+		</div>
+	</nav>
+	<div class="top2">
+    	<a href="register.html" class="box1 button" style="text-decoration: none;color: #fff">注册</a>
+    	<a href="login.html" class="box1 button" style="text-decoration: none;color: #fff">登录</a>
+	</div>
+
+		<div id="login">
+    		<div id="triangle" class="input-group"></div>
+  			<h1>Welcom to log in!</h1>
+  				<hr style="height:1px;border:none;border-top:1px dashed grey;margin-left:-20px;margin-right:-21px;margin-bottom:50px;">
+    			<span class="word2">用 户 名</span><input type="text" name="username" value="" placeholder="请输入用户名">
+			 	<span id="123"></span><br>
+				<span class="word2">密 码</span><input type="password" name="password" value="" placeholder="请输入密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入密码'"><br>
+				<hr style="height:1px;border:none;border-top:1px dashed grey;margin-left:-20px;margin-right:-20px;margin-top:50px;margin-bottom:10px;">
+				<input class="button" id="denglu" type="button" name="submit" value="登录" onclick="x();">
+		</div>
+	<script type="text/javascript" src="../js/pages/login.js"></script>
+</body>
+</html>

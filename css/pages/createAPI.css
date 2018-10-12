@@ -1,0 +1,83 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+#box1{
+	background-color: #CCC;
+	padding: 20px 0;
+}
+#box2{
+	background-color:  #eee;
+}
+#box2 h2{
+	color: #222222;
+	margin-bottom: 0;
+
+}
+#chuangjian{
+	float: right;
+	background-color: #5CB85C;
+	color: #fff;
+}
+
+textarea{
+	margin-top: 10px;
+	height: 90%;
+	width: 600px;
+	margin-left: 50px;
+}
+/*表单*/
+.right{
+	border:0 1px solid #ccc;
+}
+table{
+	border: 1px solid #ccc;
+	height: 530px;
+	width: 100%;
+}
+table caption{
+	font-size: 1.4em;
+	color: #fff;
+	margin: 43px 0 0 0;
+	background-color: #5CB85C;
+}
+table tr td{
+	list-style: 110px
+}
+table tr td:first-child{width:30px;text-align: center;}
+table tr td:last-child{
+	width: 100px;
+}
+select{
+	height: 30px;
+	width:80%;
+}
+.btn-success{
+	width: 80px;
+}
+#login_click1{
+	float: left;
+	margin-right: 70px;
+	display: none;
+
+}
+footer{
+	background-color: #ccc;
+	padding: 20px;
+	text-align: center;
+}
