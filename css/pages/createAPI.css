@@ -21,20 +21,20 @@
 	background-color: #CCC;
 	padding: 20px 0;
 }
+.container-fluid{
+	padding: 0;
+}
 #box2{
 	background-color:  #eee;
+}
+#box2 .text{
+	padding: 20px;height: 640px;
 }
 #box2 h2{
 	color: #222222;
 	margin-bottom: 0;
 
 }
-#chuangjian{
-	float: right;
-	background-color: #5CB85C;
-	color: #fff;
-}
-
 textarea{
 	margin-top: 10px;
 	height: 90%;
@@ -55,6 +55,7 @@ table caption{
 	color: #fff;
 	margin: 43px 0 0 0;
 	background-color: #5CB85C;
+	text-align: center;
 }
 table tr td{
 	list-style: 110px

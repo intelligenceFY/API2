@@ -22,24 +22,20 @@
 	background-color: #CCC;
 	padding: 20px 0;
 }
+.container-fluid{
+	padding: 0;
+}
 #chuangjian{
   float: right;
   background-color: #5CB85C;
   color: #fff;
   margin-top: 10px;
 }
-table a{
-  font-size: 0.6em;
-  color:#0090FF;
-}
 #case{
 	min-height: 420px;
 	padding: 40px 0;
 	background-color: #eee;
 	text-align: center;
-}
-#case h4,p{
-	color: #999;
 }
 #case .number{
 	font-size: 0.7em;
@@ -52,44 +48,48 @@ table a{
 .thumbnail{
 	min-height: 160px;
 }
-.thumbnail .btn-info{
-	margin-top: 40px;
-	margin-right: 20px;
-}
 .information1{
 	padding: 10px 0;
 	float: left;
 }
+.information1 .number{
+	float: left;
+	margin-left: 10px;
+}
+.information1 .glyphicon-trash{
+	margin-right: 10px;
+	float: right;
+	cursor: pointer;
+}
+.information1 .glyphicon-pencil{
+	cursor: pointer;
+	margin-right: 15px;
+	float: right;
+}
 .information2{
 	float: left;
 }
-.captio{
+.information2 a{
+	float: left;
+	margin-left: 10px;
+	display: inline-block;
+}
+.caption{
 	margin-bottom: 30px;
+	margin-top: 40px;
+	margin-right: 20px;
 	float: left;
 }
-.captio .btn-info{
+.caption .btn-info{
 	font-size: 0.6em;
-}
-.optio a{
-	font-size: 0.6em;
-}
-.modity{
-	margin-right: 80px;
-}
-.enter{
-	margin-left: 130px;
-}
-.option a:hover{
-	text-decoration: none;
 }
 .member{
 	border-left: 1px solid #ccc;
 	height: 350px;
 }
-
 .info-content{
 	background-color: #fff;
-	margin:  0 0 7px 0;
+	margin:  0 0 11px 0;
 }
 #footer{
   background-color: #ccc;

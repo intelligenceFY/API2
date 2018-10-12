@@ -17,40 +17,31 @@
     width: 1170px;
   }
 }
-
+/*主体部分之一*/
 #box1{
 	background-color: #CCC;
 	padding: 20px 0;
 }
-
-.info-content{
-	background-color: #fff;
-	margin:  0 0 20px 0;
-	box-shadow: 2px 2px #ccc;
-}
-.first{
-	border-bottom: 1px #666 solid;
+.container-fluid{
+	padding: 0;
 }
 #chuangjian{
 	float: right;
 	background-color: #5CB85C;
 	color: #fff;
 }
-.second{
-	background-color: #ccc;
-}
+/*主题部分之二 项目展示*/
 #case{
 	min-height: 420px;
 	padding: 40px 0;
 	background-color: #eee;
 	text-align: center;
 }
-#case h4,p{
-	color: #999;
-}
-#case .number{
+.thumbnail .row .number{
 	font-size: 0.7em;
 	color: #666;
+	float: left;
+	margin-left: 10px;
 }
 #case a{
 	color:#0090FF;
@@ -59,11 +50,6 @@
 .thumbnail{
 	min-height: 160px;
 }
-.thumbnail .btn-info{
-	margin-top: 40px;
-	margin-right: 20px;
-}
-
 .information1{
 	padding: 10px 0;
 	float: left;
@@ -71,28 +57,34 @@
 .information2{
 	float: left;
 }
-.captio{
+.caption{
 	margin-bottom: 30px;
 }
-.captio .btn-info{
+.caption .btn-info{
+	margin-top: 40px;
+	margin-right: 20px;
 	margin-left: 25px;
 	font-size: 0.6em;
 }
-.optio a{
-	font-size: 0.6em;
+.information1 .glyphicon-trash{
+	margin-right: 10px;
+	float: right;
+	cursor: pointer;
 }
-.modity{
-	margin-right: 80px;
+.information1 .glyphicon-pencil{
+	cursor: pointer;
+	margin-right: 15px;
+	float: right;
 }
-.enter{
-	margin-left: 130px;
+.information2 a{
+	float: left;
+	margin-left: 10px;
+	display: inline-block;
 }
-.option a:hover{
-	text-decoration: none;
-}
+/*底部*/
 #footer{
 	background-color: #ccc;
-	/*border-top: 1px solid*/
+	color: #444;
 	padding: 20px;
 	text-align: center;
 }

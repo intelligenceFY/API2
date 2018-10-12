@@ -22,15 +22,27 @@
 	background-color: #CCC;
 	padding: 20px 0;
 }
+.container-fluid{
+  padding: 0;
+}
+.table-responsive{
+  width: 1000px;
+  margin-left: 100px;
+  float: left;
+}
 #chuangjian{
   float: right;
   background-color: #5CB85C;
   color: #fff;
   margin-top: 10px;
 }
-table a{
+table td a{
+   color:#0090FF;
+}
+table td a:hover{
   font-size: 0.6em;
-  color:#0090FF;
+  text-decoration: none;
+ 
 }
 
 #footer{

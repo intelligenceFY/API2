@@ -43,11 +43,11 @@ const headerTpl = () => {
                     个人中心 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">我的资料</a></li>
-                    <li><a href="#">我的项目</a></li>
+                    <li><a href="introduction.html">我的资料</a></li>
+                    <li><a href="myproject.html">我的项目</a></li>
                 </ul>
 				</li>
-				<li><a href="">消息<span class="glyphicon glyphicon-bell"></span></a></li>
+				<li><a href="xiaoxi.html">消息<span class="glyphicon glyphicon-bell"></span></a></li>
 			</ul>
 			<form class="navbar-form navbar-right">
 				<input type="text" placeholder="输入搜索项目名称" class="form-control">
