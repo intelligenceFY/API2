@@ -21,6 +21,8 @@
 #box1{
 	background-color: #CCC;
 	padding: 20px 0;
+	margin-top: 50px;
+
 }
 .container-fluid{
 	padding: 0;
@@ -30,10 +32,11 @@
   background-color: #5CB85C;
   color: #fff;
   margin-top: 10px;
+  height: 35px;
 }
 #case{
 	min-height: 420px;
-	padding: 40px 0;
+	padding-top: 40px;
 	background-color: #eee;
 	text-align: center;
 }
@@ -45,47 +48,25 @@
 	color:#0090FF;
 	font-size: 0.7em;
 }
-.thumbnail{
-	min-height: 160px;
+#box{
+	width: 877.5px;
+	height: 470px;
+	display: grid;
 }
-.information1{
-	padding: 10px 0;
-	float: left;
-}
-.information1 .number{
-	float: left;
-	margin-left: 10px;
-}
-.information1 .glyphicon-trash{
-	margin-right: 10px;
-	float: right;
-	cursor: pointer;
-}
-.information1 .glyphicon-pencil{
-	cursor: pointer;
-	margin-right: 15px;
-	float: right;
-}
-.information2{
-	float: left;
-}
-.information2 a{
-	float: left;
-	margin-left: 10px;
-	display: inline-block;
-}
-.caption{
-	margin-bottom: 30px;
-	margin-top: 40px;
-	margin-right: 20px;
-	float: left;
-}
-.caption .btn-info{
-	font-size: 0.6em;
+#biuuu_city_list{
+	height: 410px;
 }
 .member{
 	border-left: 1px solid #ccc;
-	height: 350px;
+	height: 400px;
+	position: absolute;
+	float: right;
+}
+#container-fluid{
+	display: grid;
+}
+.memberDisplay{
+	height: 360px;
 }
 .info-content{
 	background-color: #fff;
@@ -95,4 +76,143 @@
   background-color: #ccc;
   padding: 20px;
   text-align: center;
+}
+#popupdiv
+{
+width:500px;
+height:450px;
+position:absolute;
+z-index:1000;
+border:1px solid block;
+box-shadow: 2px 2px #666;
+background:#fff;
+text-align: center;
+}
+#popupdiv a{
+	float: right;
+}
+#popupdiv table{
+	width: 500px;
+	height: 400px;
+	color: #666;
+}
+#popupdiv h2{
+	text-align: center;
+}
+#name3,#name4{
+	width: 300px;
+	background-color: #fff;
+	height: 30px;
+
+}
+input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset;}
+#popupdiv #button1,#button2{
+	width: 100px;
+	height: 40px;
+	border-radius: 5px 5px 5px 5px;
+	background-color: #28A745;
+	border: 0;
+	color: #fff;
+}
+#alert{
+	display: none;
+	width:500px;
+	height:450px;
+	border:1px solid block;
+	box-shadow: 2px 2px #666;
+	background:#fff;
+	position: absolute;
+	z-index: 501;
+	text-align: center;
+}
+#alert a{
+	float: right;
+}
+#alert h2{
+	text-align: center;
+}
+#alert span{
+	margin-left: 80px;
+	float: left;
+}
+
+#alert table{
+	width: 500px;
+	height: 400px;
+	color: #666;
+}
+
+#alert .button1{
+	width: 100px;
+	height: 40px;
+	background-color: #28A745;
+	color: #fff;
+}
+
+#alert .button2{
+	width: 100px;
+	height: 40px;
+	background-color: #28A745;
+	color: #fff;
+}
+#member{
+	width:350px;
+	height:300px;
+	border:1px solid block;
+	box-shadow: 2px 2px #666;
+	background:#fff;
+	position: absolute;
+	z-index: 501;
+	text-align: center;
+	display: none;
+}
+#alert,#member input{
+	outline:none;
+	width: 200px;
+	height: 30px;
+	border: solid 1px #E5E5E5;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+}
+#member a{
+	float: right;
+}
+#member h3{
+	margin-left: 50px;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+
+}
+#member span{
+	margin-bottom: 20px;
+	/*float: left;*/
+	/*margin-top: 20px;*/
+	margin-left: 40px;
+}
+
+#member table{
+	width: 300px;
+	height: 200px;
+
+	color: #666;
+}
+
+#member .button1{
+	width: 80px;
+	height: 40px;
+	margin-top: 40px;
+	background-color: #28A745;
+	color: #fff;
+	margin-left: 40px;
+}
+
+#member .button2{
+	width: 80px;
+	margin-top: 40px;
+	height: 40px;
+	background-color: #28A745;
+	color: #fff;
+	margin-left: 60px;
 }

@@ -4,39 +4,10 @@ function aaa(){
     var item = document.getElementsByClassName('t');
     var userId = localStorage.getItem('userId');
     console.log(userId);
-    // var xmlhttp;
-    // if (window.XMLHttpRequest) {
-    //     xmlhttp = new XMLHttpRequest();
-    // } 
-    // else {
-    //     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    // }
-    // if(xmlhttp != null){
-    //     xmlhttp.open("GET", "http://rap2api.taobao.org/app/mock/12472//user", true);
-    //     xmlhttp.onreadystatechange = function () {
-    //         if (xmlhttp.status == 200){
-    //             if(xmlhttp.readyState == 4){
-    //                 var info = JSON.parse(xmlhttp.responseText);
-    //                 item[0].innerHTML = info.data.userName;
-    //                 item[5].innerHTML = info.data.email;
-    //                 item[4].innerHTML = info.data.phone_number;
-    //                 item[2].innerHTML = info.data.sex;
-    //                 item[3].innerHTML = info.data.introduction;
-    //                 abc();
-    //             }
-    //         } 
-    //         else{
-    //             alert('页面有异常');
-    //         }
-    //     }
-    //     xmlhttp.send(null);
-    //}; 
-    
-
         $.ajax({
             type: 'GET',
             dataType: 'json',
-            url: 'http://172.33.10.66:8081/ApiManagementSystem/user',
+            url: 'http://45.40.197.28:8081/ApiManagementSystem/user',
             data: { 
                 userId:userId,
             },
@@ -131,7 +102,7 @@ function abc(){
             $.ajax({
             type: 'PUT',
             dataType: 'json',
-            url: 'http://172.33.10.66:8081/ApiManagementSystem/user/'+userId,
+            url: 'http://45.40.197.28:8081/ApiManagementSystem/user/'+userId,
             data: {
                 "userName":item[0].innerHTML,
                 "password":item[1].innerHTML,

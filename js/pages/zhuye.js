@@ -1,31 +1,43 @@
-onload=ajax();
-onload=ajax2();
+onload=ajax(),ajax2();
+// onload=ajax2();
 function ajax(){
 	var userId = localStorage.getItem('userId');
-	console.log(userId)
+    console.log(userId);
+	console.log(userId);
 	$.ajax({
         type: 'get',
         dataType: 'json',
-        url: 'http://172.33.10.66:8081/ApiManagementSystem/project/userProject',
-        contentType:"application/json",
+        url: 'http://125.81.59.65:8081/ApiManagementSystem/project/user',
         data: {
             "userId":userId,
-            "pageNum":1,
-            "pageSize":5,
         },
 		success: function ( data ) {
         	var len = data.data.length;
         	console.log(data)
         	var backdata = data.data;
         	if(data.status == 200){
-        		console.log(backdata);
-        	    for(i = 0;i<len;i++){
-        		    projectId = backdata[i].projectId;
-        		    address=backdata[i].address;
-        		    projectName = backdata[i].projectName;
-        		    description = backdata[i].description;
-        		    loadproject(projectId,projectName,description,address);
-        	    }
+                var display = document.getElementById("display1");
+                if (len==0) {
+                    display1.innerHTML="暂时没有团队，进入我的团队创建".fontcolor("#666");
+                }
+        		else{
+                    var zhankai = document.createElement("a");
+                    zhankai.setAttribute("href","myproject.html");
+                    zhankai.setAttribute("id","oldEle");
+                    var dianji =document.createTextNode("点击展开");
+                    display.appendChild(zhankai);
+                    zhankai.appendChild(dianji);
+                    zhankai.style.cssText="float:right;";
+                    console.log(backdata);
+                    for(i = 0;i<len;i++){
+                        var projectId = backdata[i].projectId;
+                        var address=backdata[i].address;
+                        var projectName = backdata[i].projectName;
+                        var description = backdata[i].description;
+                        loadproject(projectId,projectName,description,address);
+                    }
+                }
+        		
             }
         },
 		error: function (data) {
@@ -33,90 +45,42 @@ function ajax(){
         }
     })
 }
-function loadproject(projectId,projectName,description,address){
-	var display = document.getElementById("display1");
-	var oldEle = document.getElementById("min");
-	var newdiv = document.createElement("div");
-	var name = document.createElement("div");
-	name.style.cssText = "width: 250px;height: 50px;margin-left: 10px;margin-top: 10px;letter-spacing: 5px;color: #666;";
-	newdiv.appendChild(name);
-	var h1 = document.createElement("h5");
-	var h1Text = document.createTextNode("项目编号: ");  
-	var num = document.createTextNode(projectId);
-	name.appendChild(h1);
-	h1.appendChild(h1Text);
-	h1.appendChild(num);
 
-	var h2 = document.createElement("h5");
-	var h2Text = document.createTextNode("项目名称: ");  
-	var title = document.createTextNode(projectName);
-	name.appendChild(h2);
-	h2.appendChild(h2Text);
-	h2.appendChild(title);
-	
-	var btn = document.createElement("button");
-	btn.setAttribute("id","dbtn");//先不清楚是用id还是class 暂用id
-	btn.innerHTML = "项目资料";
-	btn.style.cssText = "height: 30px;width: 170px;margin-left: 60px;margin-top: 40px;color: #666;cursor: pointer;";
-	newdiv.appendChild(btn);
-
-	var a = document.createElement("div");
-	a.style.cssText = "margin-top: 60px;font-size: 0.5em;";
-	newdiv.appendChild(a);
-
-	var a1 = document.createElement("a");
-	a1.style.cssText = "margin-left: 40px;color: #169BD5;";
-	a.appendChild(a1);
-    a1.setAttribute("href","project1.html"); 
-    var a1Text = document.createTextNode("查看");  
-	a1.appendChild(a1Text);
-
-	var a2 = document.createElement("a"); 
-	a2.style.cssText = "margin-left: 40px;color: #169BD5;";
-	a.appendChild(a2);
-	a2.setAttribute("href","");  
-    var a2Text = document.createTextNode("修改");  
-	a2.setAttribute("href","project1.html"); 
-	a2.appendChild(a2Text);
-
-	var a3 = document.createElement("a"); 
-	a3.style.cssText = "margin-left: 40px;color: #169BD5;";
-	a.appendChild(a3);
-	a3.setAttribute("href","");  
-	var a3Text = document.createTextNode("查看");  
-	a3.appendChild(a3Text);
-
-	var a4 = document.createElement("a");
-	a4.style.cssText = "margin-left: 40px;color: #169BD5;";
-	a.appendChild(a4);
-	a4.setAttribute("href","javascript:void(0)");  
-    var a4Text = document.createTextNode("删除");  
-	a4.appendChild(a4Text);   
-	newdiv.setAttribute("id","block");
-	newdiv.setAttribute("class","block");
-	display.appendChild(newdiv);		
-}
 function ajax2(){
 	var userId = localStorage.getItem('userId');
 	console.log(userId)
 	$.ajax({
         type: 'get',
         dataType: 'json',
-        url: 'http://172.33.10.66/ApiManagementSystem/team/userTeam',
+        url: 'http://125.81.59.65:8081/ApiManagementSystem/team/userTeam',
         data: {
             "userId":userId,
-            "page":1,
         },
 		success: function ( data ) {
         	var len = data.data.length;
         	var backdata = data.data;
         	if(data.status == 200){
-        	    for(i = 0;i<len;i++){
-        		    tId = backdata[i].teamId;
-        		    teamName = backdata[i].teamName;
-        		    description = backdata[i].description;
-        		    loadGroup(tId,teamName,description);
-        	    }
+        		var display = document.getElementById("display2");
+        		if (len==0) {
+                    display2.innerHTML="暂时没有团队，进入我的团队创建".fontcolor("#666");
+                }
+                else{
+                    var zhankai = document.createElement("a");
+                    zhankai.setAttribute("href","myproject.html");
+                    zhankai.setAttribute("id","oldEle");
+                    var dianji =document.createTextNode("点击展开");
+                    zhankai.style.cssText="float:right;";
+                    display.appendChild(zhankai);
+                    zhankai.appendChild(dianji);
+                    for(i = 0;i<len;i++){
+                        var tId = backdata[i].teamId;
+                        var teamName = backdata[i].teamName;
+                        var description = backdata[i].description;
+                        loadGroup(tId,teamName,description);
+                    }
+
+                }
+                
             }
         },
 		error: function (data) {
@@ -124,53 +88,134 @@ function ajax2(){
         }
     })
 }
-function loadGroup(){
-    var display = document.getElementById("display2");
-	var newdiv = document.createElement("div");
-	var name = document.createElement("div");
-	name.style.cssText = "width: 250px;height: 50px;margin-left: 10px;margin-top: 10px;letter-spacing: 5px;color: #666;";
-	newdiv.appendChild(name);
-	var h1 = document.createElement("h5");
-	var h1Text = document.createTextNode("团队编号: ");  
-	var num = document.createTextNode(tId);
-	name.appendChild(h1);
-	h1.appendChild(h1Text);
-	h1.appendChild(num);
+function loadproject(projectId,projectName,description,address){
+		var display = document.getElementById("display1");
+		var newdiv = document.createElement("div");
+		var thumbnail = document.createElement("div");
+        newdiv.setAttribute("class","col-lg-3 col-md-4 col-xs-7 clo-sm-6");
+        thumbnail.setAttribute("class","thumbnail");
+        newdiv.appendChild(thumbnail);
+		thumbnail.style.cssText = "min-height: 160px;margin-top:40px;";
+		newdiv.appendChild(thumbnail);
+        var main = document.createElement("div");
+        main.setAttribute("class","row");
+        main.setAttribute("id","main");
+        thumbnail.appendChild(main);
 
-	var h2 = document.createElement("h5");
-	var h2Text = document.createTextNode("团队名称: ");  
-	var title = document.createTextNode(teamName);
-	name.appendChild(h2);
-	h2.appendChild(h2Text);
-	h2.appendChild(title);
-	
-	var btn = document.createElement("button");
-	btn.setAttribute("id","dbtn");//先不清楚是用id还是class 暂用id
-	btn.innerHTML = "团队资料";
-	btn.style.cssText = "height: 30px;width: 170px;margin-left: 60px;margin-top: 40px;color: #666;cursor: pointer;";
-	newdiv.appendChild(btn);
+		var information1 = document.createElement("div");
+        information1.setAttribute("class","col-md-12 information1");
+        information1.style.cssText = "padding: 10px 14px;float: left;"
+        main.appendChild(information1);
 
-	var a = document.createElement("div");
-	a.style.cssText = "margin-top: 60px;font-size: 0.5em;";
-	newdiv.appendChild(a);
+        var number = document.createElement("span");
+        number.setAttribute("class","number");
+		information1.appendChild(number);
+        var img = document.createElement("img");
+        img.src = "../images/bianhao.png";
+        number.style.cssText=" font-size: 0.7em;color: #666;vertical-align:bottom; float: left;margin-left: 10px;" 
+        number.appendChild(img);
+        var num = document.createTextNode(" " + projectId);
+        number.appendChild(num);
 
-	var a = document.createElement("div");
-	a.style.cssText = "margin-top: 60px;font-size: 0.5em;";
-	newdiv.appendChild(a);
-	var a1 = document.createElement("a");
-	a1.style.cssText = "float: left;margin-left: 40px;color: #169BD5;";
-	a.appendChild(a1);
-    a1.setAttribute("href","group.html"); 
-    var a1Text = document.createTextNode("进入");  
-	a1.appendChild(a1Text);
+        var trash = document.createElement("span");
+        trash.setAttribute("class","glyphicon glyphicon-trash");
+        trash.style.cssText = "margin-right: 10px;float: right;cursor: pointer;"
+        var pencil = document.createElement("span");
+        pencil.style.cssText = "cursor: pointer;margin-right: 15px;float: right;"
+        pencil.setAttribute("class","glyphicon glyphicon-pencil");
+        information1.appendChild(trash);
+        information1.appendChild(pencil);
+        
+        var information2 = document.createElement("div");
+        information2.style.cssText = "float: left;"
+		information2.setAttribute("class","col-md-12 information2");
+        main.appendChild(information2);
+        var mingchen1 = document.createElement("a");
+        mingchen1.style.cssText="color:#0090FF;font-size: 0.7em;float: left;margin-left: 10px;display: inline-block;"
+        information2.appendChild(mingchen1);
+        var mingchen2 = document.createElement("span");
+        mingchen1.appendChild(mingchen2);
+        var mingchen3 = document.createElement("img");
+        mingchen3.src = "../images/name_16.png";
+        texx=document.createTextNode(" " + projectName);
+        mingchen2.appendChild(mingchen3); 
+        mingchen2.appendChild(texx);
 
-	var a4 = document.createElement("a");
-	a4.style.cssText = "margin-left: 30px;margin-right: 30px;color: #169BD5;float: right;";
-	a.appendChild(a4);
-	a4.setAttribute("href","javascript:void(0)");  
-    var a4Text = document.createTextNode("删除");  
-	a4.appendChild(a4Text);      
-	newdiv.setAttribute("id","block");
-	newdiv.setAttribute("class","block");
-	display.appendChild(newdiv);
+		var caption = document.createElement("div");
+        caption.style.cssText = "margin-bottom: 30px;";
+        main.appendChild(caption);
+		var btn = document.createElement("button");
+        btn.setAttribute("class","btn btn-info");
+		btn.setAttribute("id","dbtn");
+		btn.innerHTML = "查看个人项目";
+		btn.style.cssText = "margin-top: 40px;font-size: 0.6em;";
+		caption.appendChild(btn);
+		display1.appendChild(newdiv);
+	}
+
+function loadGroup(tId,teamName,description){
+		var display = document.getElementById("display2");
+		var newdiv = document.createElement("div");
+		var thumbnail = document.createElement("div");
+        newdiv.setAttribute("class","col-lg-3 col-md-4 col-xs-7 clo-sm-6");
+        thumbnail.setAttribute("class","thumbnail");
+        newdiv.appendChild(thumbnail);
+		thumbnail.style.cssText = "min-height: 160px;margin-top:40px;";
+		newdiv.appendChild(thumbnail);
+        var main = document.createElement("div");
+        main.setAttribute("class","row");
+        main.setAttribute("id","main");
+        thumbnail.appendChild(main);
+
+		var information1 = document.createElement("div");
+        information1.setAttribute("class","col-md-12 information1");
+        information1.style.cssText = "padding: 10px 14px;float: left;"
+        main.appendChild(information1);
+
+        var number = document.createElement("span");
+        number.setAttribute("class","number");
+		information1.appendChild(number);
+        var img = document.createElement("img");
+        img.src = "../images/bianhao.png";
+        number.style.cssText=" font-size: 0.7em;color: #666;vertical-align:bottom; float: left;margin-left: 10px;" 
+        number.appendChild(img);
+        var num = document.createTextNode(" " + tId);
+        number.appendChild(num);
+
+        var trash = document.createElement("span");
+        trash.setAttribute("class","glyphicon glyphicon-trash");
+        trash.style.cssText = "margin-right: 10px;float: right;cursor: pointer;"
+        var pencil = document.createElement("span");
+        pencil.style.cssText = "cursor: pointer;margin-right: 15px;float: right;"
+        pencil.setAttribute("class","glyphicon glyphicon-pencil");
+        information1.appendChild(trash);
+        information1.appendChild(pencil);
+        pencil.onclick=function(){
+            window.location.href='myproject.html';
+        }
+        var information2 = document.createElement("div");
+        information2.style.cssText = "float: left;"
+		information2.setAttribute("class","col-md-12 information2");
+        main.appendChild(information2);
+        var mingchen1 = document.createElement("a");
+        mingchen1.style.cssText="color:#0090FF;font-size: 0.7em;float: left;margin-left: 10px;display: inline-block;"
+        information2.appendChild(mingchen1);
+        var mingchen2 = document.createElement("span");
+        mingchen1.appendChild(mingchen2);
+        var mingchen3 = document.createElement("img");
+        mingchen3.src = "../images/name_16.png";
+        texx=document.createTextNode(" " + teamName);
+        mingchen2.appendChild(mingchen3); 
+        mingchen2.appendChild(texx);
+
+		var caption = document.createElement("div");
+        caption.style.cssText = "margin-bottom: 30px;";
+        main.appendChild(caption);
+		var btn = document.createElement("button");
+        btn.setAttribute("class","btn btn-info");
+		btn.setAttribute("id","dbtn");
+		btn.innerHTML = "查看团队项目";
+		btn.style.cssText = "margin-top: 40px;font-size: 0.6em;";
+		caption.appendChild(btn);
+		 display2.appendChild(newdiv);
 }

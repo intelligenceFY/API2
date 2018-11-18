@@ -1,9 +1,9 @@
 function show(popupdiv){
-var Idiv=document.getElementById(popupdiv);
+var Idiv=document.getElementById('popupdiv');
 Idiv.style.display="block";
 //以下部分要将弹出层居中显示
 Idiv.style.left=(document.documentElement.clientWidth-Idiv.clientWidth)/2+document.documentElement.scrollLeft+"px";
-Idiv.style.top=(document.documentElement.clientHeight-Idiv.clientHeight)/2+document.documentElement.scrollTop-50+"px";
+Idiv.style.top=(document.documentElement.clientHeight-Idiv.clientHeight)/2+document.documentElement.scrollTop+"px";
 //以下部分使整个页面至灰不可点击
 var procbg = document.createElement("div"); //首先创建一个div
 procbg.setAttribute("id","mybg"); //定义该div的id
@@ -86,7 +86,7 @@ function addg(){
 	$.ajax({
         type: 'post',
         dataType: 'json',
-        url: 'http://172.33.10.66:8081/ApiManagementSystem/team',
+        url: 'http://125.81.59.65:8081/ApiManagementSystem/team',
         data: {
             "createuserId":userId ,
             "teamName":name3,
@@ -95,14 +95,12 @@ function addg(){
 		success: function ( data ) {
 			if (data.status ==200) {
 				tid = data.data.teamId;
-                console.log(data);
-                console.log(tid);
                 alert("创建团队成功");
-        		addgroup(tid);
+        		// addgroup(tid);
                 $.ajax({
         			type: 'post',
         			dataType: 'json',
-        			url: 'http://172.33.10.66:8081/ApiManagementSystem/team/teamMember',
+        			url: 'http://125.81.59.65:8081/ApiManagementSystem/team/teamMember',
         			data: {
         				"teamId":tid,
         				"userId":userId,
@@ -126,63 +124,6 @@ function addg(){
         }
     })
 }
-function addgroup(tid){
-	var name3 = document.getElementById("name3").value;
-	var name4 = document.getElementById("name4").value;
-	var display = document.getElementById("display");
-	var oldEle = document.getElementById("add");
-	var newdiv = document.createElement("div");
-	var name = document.createElement("div");
-	name.style.cssText = "width: 250px;height: 50px;margin-left: 10px;margin-top: 10px;letter-spacing: 5px;color: #666;";
-	newdiv.appendChild(name);
-	var h1 = document.createElement("h5");
-	var h1Text = document.createTextNode("团队编号: ");  
-	var num = document.createTextNode(tid);
-	name.appendChild(h1);
-	h1.appendChild(h1Text);
-	h1.appendChild(num);
-
-	var h2 = document.createElement("h5");
-	var h2Text = document.createTextNode("团队名称: ");  
-	var title = document.createTextNode(name3);
-	name.appendChild(h2);
-	h2.appendChild(h2Text);
-	h2.appendChild(title);
-
-    
-	var btn = document.createElement("button");
-	btn.innerHTML = "团队资料";
-	btn.style.cssText = "height: 30px;width: 170px;margin-left: 60px;margin-top: 40px;color: #666;cursor: pointer;";
-	newdiv.appendChild(btn);
-	btn.onclick = function(){
-		show1();
-	}
-
-	var a = document.createElement("div");
-	a.style.cssText = "margin-top: 60px;font-size: 0.5em;";
-	newdiv.appendChild(a);
-
-	var a1 = document.createElement("a");
-	a1.style.cssText = "float: left;margin-left: 40px;color: #169BD5;";
-	a.appendChild(a1);
-    a1.setAttribute("href","group.html"); 
-    var a1Text = document.createTextNode("进入");  
-    a1.appendChild(a1Text);
-    a1.onclick = function(){
-        setgroup(tid);
-    }
-
-	var a4 = document.createElement("a");
-	a4.style.cssText = "margin-left: 30px;margin-right: 30px;color: #169BD5;float: right;";
-	a.appendChild(a4);
-	a4.setAttribute("href","javascript:void(0)");  
-    var a4Text = document.createTextNode("删除");  
-    a4.appendChild(a4Text);   
-
-	newdiv.style.cssText= "height: 250px;width: 300px;box-shadow: 2px 2px 10px  #666;margin-left: 53px;margin-top: 40px;position: relative;padding: 10px;float: left;"; 
-	oldEle.parentNode.insertBefore( newdiv,oldEle );
-	closeDiv("popupdiv");
-}
 //part3-1请求数据，显示数据
 var teamName;var description,i;var tId;
 function ajax(){
@@ -190,122 +131,133 @@ function ajax(){
 	$.ajax({
         type: 'get',
         dataType: 'json',
-        url: 'http://172.33.10.66:8081/ApiManagementSystem/team/userTeam',
+        url: 'http://125.81.59.65:8081/ApiManagementSystem/team/userTeam',
         data: {
             "userId":userId,
-            "page":1,
         },
 		success: function ( data ) {
-        	var len = data.data.length;
-        	var backdata = data.data;
+
         	if(data.status == 200){
-        	    for(i = 0;i<len;i++){
-        		    tId = backdata[i].teamId;
-        		    teamName = backdata[i].teamName;
-        		    description = backdata[i].description;
-        		    loadGroup(tId,teamName,description);
-        	    }
+                 var len = data.data.length;
+            if (len==0) {
+                document.getElementById('biuuu_city_list').innerHTML="暂时没有团队项目，请创建".fontcolor("#666");
+            }
+            else{
+                  var backdata = data.data;
+                  console.log(backdata);
+                  var teamname = document.getElementById("teamname");
+                  // teamname.innerHTML=backdata.
+                  lay(backdata,len);
+            }
+        		     
             }
         },
 		error: function (data) {
 			alert('error');
         }
     })
-	function loadGroup(tId,teamName,description){
-		var display = document.getElementById("display");
-		var oldEle = document.getElementById("add");
-		var newdiv = document.createElement("div");
-		var name = document.createElement("div");
-		name.style.cssText = "width: 250px;height: 50px;margin-left: 10px;margin-top: 10px;letter-spacing: 5px;color: #666;";
-		newdiv.appendChild(name);
-		var h1 = document.createElement("h5");
-        h1.setAttribute("class","h5");
-		var h1Text = document.createTextNode("团队编号: ");  
-		var num = document.createTextNode(tId);
-		name.appendChild(h1);
-		h1.appendChild(h1Text);
-		h1.appendChild(num);
-
-		var h2 = document.createElement("h5");
-		var h2Text = document.createTextNode("团队名称: ");  
-		var title = document.createTextNode(teamName);
-		name.appendChild(h2);
-		h2.appendChild(h2Text);
-		h2.appendChild(title);
 	
-		var btn = document.createElement("button");
-		btn.setAttribute("id","dbtn");//先不清楚是用id还是class 暂用id
-		btn.innerHTML = "团队资料";
-		btn.style.cssText = "height: 30px;width: 170px;margin-left: 60px;margin-top: 40px;color: #666;cursor: pointer;";
-		newdiv.appendChild(btn);
-		btn.onclick = function(){
-			show1(tId,teamName,description);
-            aaa(teamName,description);
-		}
-
-		var a = document.createElement("div");
-		a.style.cssText = "margin-top: 60px;font-size: 0.5em;";
-		newdiv.appendChild(a);
-
-		var a = document.createElement("div");
-		a.style.cssText = "margin-top: 60px;font-size: 0.5em;";
-		newdiv.appendChild(a);
-		var a1 = document.createElement("a");
-		a1.style.cssText = "float: left;margin-left: 40px;color: #169BD5;";
-		a.appendChild(a1);
-        a1.setAttribute("href","group.html"); 
-        var a1Text = document.createTextNode("进入");  
-        a1.appendChild(a1Text);
-        a1.onclick=function(){
-            setgroup(tId,teamName,description);
-        }
-
-	    var a4 = document.createElement("a");
-        a4.setAttribute("class","a4");
-	    a4.style.cssText = "margin-left: 30px;margin-right: 30px;color: #169BD5;float: right;";
-	    a.appendChild(a4);
-	    a4.setAttribute("href","javascript:void(0)");  
-        var a4Text = document.createTextNode("删除");  
-        a4.appendChild(a4Text);      
-	    newdiv.setAttribute("id","block");
-	    newdiv.setAttribute("class","block");
-	    oldEle.parentNode.insertBefore( newdiv,oldEle );
-	   //part3-2请求删除数据
-		a4.onclick = function(){   
-            var flag = window.confirm("你确认要删除"+teamName+"这个项目吗?"); 
-                if(!flag){  
-                    return false;  
-                }
-			 	else{  
-					function remove(){
-						$.ajax({
-        					type: 'delete',
-       						dataType: 'json',
-        					url: 'http://172.33.10.66:8081/ApiManagementSystem/team/'+tId,
-							success: function ( data ) {
-								if (data.status ==200) {
-                                    var titleElement = title.parentNode.parentNode.parentNode;
-                                    var parentElement = titleElement.parentNode;
-                                    parentElement.removeChild(titleElement);  
-                                    return true;  
-								}
-       						},
-							error: function (data) {
-								alert('error');
-        					}
-    					})
-					}
-					remove();	
-                }  
-        }		
-	}
 }
+function lay(backdata){
+    console.log(backdata.length)
+
+    layui.use(['laypage', 'layer'], function(){
+    var laypage = layui.laypage
+    ,layer = layui.layer;
+    //调用分页
+    laypage.render({
+    elem: 'demo20'
+    ,count: backdata.length
+    ,limit: 8
+    ,limits: [8]
+     ,layout: ['prev', 'next']
+     ,jump: function(obj, first){
+        if(!first){
+        layer.msg('第 '+ obj.curr +' 页');
+      }
+
+      document.getElementById('biuuu_city_list').innerHTML = function(){
+        var arr = []
+        ,thisData = backdata.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+        layui.each(thisData, function(index, item){
+            var teamName= item.teamName;
+            var teamId = item.teamId;
+            var description = item.description;
+            console.log(teamName);
+            arr.push('<div class="col-lg-3 col-md-4 col-xs-7 clo-sm-6">');
+            arr.push('<div class="thumbnail" style="min-height:160px">');
+            arr.push('<div class="row" id="mian">');
+            arr.push('<div class="col-md-12 information1" style="padding: 10px 14px;float: left;">');
+            arr.push('<span class="number" style="font-size: 0.7em;color: #666;vertical-align:bottom; float: left;margin-left: 10px;">');
+            arr.push('<img src="../images/bianhao.png"> '+teamId);
+            arr.push('</span>')
+            arr.push('<span class="glyphicon glyphicon-trash" style= "margin-right: 10px;float: right;cursor: pointer;" onclick=trash('+'"' + teamName + '"' +','+teamId+')>');
+            arr.push('</span>');
+            arr.push('<span class="glyphicon glyphicon-pencil" style="cursor: pointer;margin-right: 15px;float: right;" onclick=show1('+teamId+","+'"' + teamName+'"'+","+'"' + description+'"' +')>');
+            arr.push('</span>');
+            arr.push('</div>');
+            arr.push('<div class="col-md-12 information2" style="float:left;">');
+            arr.push('<a href="#" style="color:#0090FF;font-size: 0.7em;float: left;margin-left: 10px;display: inline-block;">');
+            arr.push('<span>');
+            arr.push('<img src="../images/name_16.png">'+teamName);
+            arr.push('</span>')
+            arr.push('</a>');
+            arr.push('</div>');
+            arr.push('<button class="btn btn-info" id="btn" style = "margin-top: 40px;margin-right: 20px;margin-left: 25px;font-size: 0.6em;" onclick=pencil('+teamId+","+'"' + teamName+'"'+","+'"' + description+'"' +')>'+'进入团队项目' +
+                    '</button>');
+
+            arr.push('</div>');
+            arr.push('</div>');
+            arr.push('</div>');
+            arr.push('</div>');
+
+        });
+        return arr.join('');
+      }();
+    }
+  });
+
+} );
+}
+function pencil(teamId,teamName,description){
+    setgroup(teamId,teamName,description);
+    window.location.href='group.html';
+}
+    //part3-2请求删除数据
+function trash(teamName,teamId){    
+
+    console.log(teamName,teamId);  
+        var flag = window.confirm("你确认要删除"+teamName+"这个团队吗?"); 
+        if(!flag){  
+            return false;  
+        }
+        else{  
+            console.log(teamId)
+            function remove(){
+                $.ajax({
+                    type: 'delete',
+                    dataType: 'json',
+
+                    url: 'http://125.81.59.65:8081/ApiManagementSystem/team/'+teamId,
+                    success: function ( data ) {
+                       ajax();
+                    },
+                    error: function (data) {
+                        alert('errorr');
+                    }
+                })
+                
+            }
+remove();  
+        }
+    }
 var item = document.getElementsByClassName('t');
-function show1(tId,teamName,description){
+function show1(teamId,teamName,description){
+     aaa(teamName,description);
     var Idiv=document.getElementById('alert');
     Idiv.style.display="block";
     Idiv.style.left=(document.documentElement.clientWidth-Idiv.clientWidth)/2+document.documentElement.scrollLeft+"px";
-    Idiv.style.top=(document.documentElement.clientHeight-Idiv.clientHeight)/2+document.documentElement.scrollTop-50+"px";
+    Idiv.style.top=(document.documentElement.clientHeight-Idiv.clientHeight)/2+document.documentElement.scrollTop+"px";
 
     var procbg = document.createElement("div"); 
     procbg.setAttribute("id","mybg");
@@ -366,10 +318,10 @@ function show1(tId,teamName,description){
     change.onclick =function(){
         if(statu == 0){
            
-            // for(i = 0; i <= item_length; i++){
-                item[0].innerHTML = '<input type="txt" class="item_input" value="'+tId+'">';
-                item[1].innerHTML = '<input type="txt" class="item_input" value="'+teamName+'">';        
-            // }
+            for(i = 0; i <= item_length; i++){
+                item[0].innerHTML = '<input type="txt" class="item_input" value="'+teamName+'">';
+                item[1].innerHTML = '<input type="txt" class="item_input" value="'+description+'">';        
+            }
             statu = 1;          
         }
         else{
@@ -383,7 +335,7 @@ function show1(tId,teamName,description){
             $.ajax({
                 type: 'PUT',
                 dataType: 'json',
-                url: 'http://172.33.10.66:8081/ApiManagementSystem/team/'+tId,
+                url: 'http://125.81.59.65:8081/ApiManagementSystem/team/'+teamId,
                 data: {
                     "teamName":item[0].innerHTML,
                     "description":item[1].innerHTML,

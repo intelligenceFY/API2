@@ -20,6 +20,7 @@
 /*主体部分之一*/
 #box1{
 	background-color: #CCC;
+	margin-top: 50px;
 	padding: 20px 0;
 }
 .container-fluid{
@@ -33,54 +34,18 @@
 /*主题部分之二 项目展示*/
 #case{
 	min-height: 420px;
-	padding: 40px 0;
+	padding-top: 40px;
 	background-color: #eee;
 	text-align: center;
 }
-.thumbnail .row .number{
-	font-size: 0.7em;
-	color: #666;
-	float: left;
-	margin-left: 10px;
+#box{
+	display: grid;
 }
-#case a{
-	color:#0090FF;
-	font-size: 0.7em;
+#biuuu_city_list{
+	align-self: flex-end;
+	height: 390px;
 }
-.thumbnail{
-	min-height: 160px;
-}
-.information1{
-	padding: 10px 0;
-	float: left;
-}
-.information2{
-	float: left;
-}
-.caption{
-	margin-bottom: 30px;
-}
-.caption .btn-info{
-	margin-top: 40px;
-	margin-right: 20px;
-	margin-left: 25px;
-	font-size: 0.6em;
-}
-.information1 .glyphicon-trash{
-	margin-right: 10px;
-	float: right;
-	cursor: pointer;
-}
-.information1 .glyphicon-pencil{
-	cursor: pointer;
-	margin-right: 15px;
-	float: right;
-}
-.information2 a{
-	float: left;
-	margin-left: 10px;
-	display: inline-block;
-}
+
 /*底部*/
 #footer{
 	background-color: #ccc;
@@ -88,3 +53,92 @@
 	padding: 20px;
 	text-align: center;
 }
+/*弹框*/
+#popupdiv
+{
+width:500px;
+height:450px;
+position:absolute;
+z-index:1000;
+border:1px solid block;
+box-shadow: 2px 2px #666;
+background:#fff;
+text-align: center;
+}
+#popupdiv a{
+	float: right;
+}
+#popupdiv table{
+	width: 500px;
+	height: 400px;
+	color: #666;
+}
+#popupdiv h2{
+	text-align: center;
+}
+#name3,#name4{
+	width: 300px;
+	background-color: #fff;
+	height: 30px;
+
+}
+input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset;}
+#popupdiv #button1,#button2{
+	width: 100px;
+	height: 40px;
+	border-radius: 5px 5px 5px 5px;
+	background-color: #28A745;
+	border: 0;
+	color: #fff;
+}
+#alert{
+	display: none;
+	width:500px;
+	height:450px;
+	border:1px solid block;
+	box-shadow: 2px 2px #666;
+	background:#fff;
+	position: absolute;
+	z-index: 501;
+	text-align: center;
+}
+#alert a{
+	float: right;
+}
+#alert h2{
+	text-align: center;
+}
+#alert span{
+	margin-left: 80px;
+	float: left;
+}
+
+#alert table{
+	width: 500px;
+	height: 400px;
+	color: #666;
+}
+
+#alert .button1{
+	width: 100px;
+	height: 40px;
+	background-color: #28A745;
+	color: #fff;
+}
+
+#alert .button2{
+	width: 100px;
+	height: 40px;
+	background-color: #28A745;
+	color: #fff;
+}
+
+#alert input{
+	outline:none;
+	width: 200px;
+	height: 30px;
+	border: solid 1px #E5E5E5;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+} 

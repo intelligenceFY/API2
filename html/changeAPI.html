@@ -6,8 +6,12 @@
 	<link rel="icon" href="../images/A_52px.png" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../css/pages/changeAPI.css">
 	<script type="text/javascript" src="./common/header.js" data-css="changeAPI" data-title="changeAPI"></script>
+
+
+<script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+
 </head>
-<body onload="ajax()">
+<body>
 	<div id="box1">
 		<div class="container">
 			<div class="row">
@@ -25,7 +29,7 @@
 			<div class="row">
 				<div class="col-md-8 text">
 					<h2> 编辑接口</h2>
-					<textarea cols="50" placeholder="代码！">
+					<textarea cols="50" placeholder="代码！" id="text">
 						
 					</textarea>
 
@@ -36,28 +40,26 @@
   						<tbody>
     						<tr>
       							<td>名称</td>
-     							<td></td>
+     							<td class="t"></td>
     						</tr>
     						<tr>
 								<td>方式</td>
-								<td><select onchange="sel(this)" id="mySelect"><option>get</option><option>post</option><option>put</option><option>delete</option></select></td>
+								<td><select id="mySelect"><option>get</option><option>post</option><option>put</option><option>delete</option></select></td>
 							</tr>
 							<tr>
       							<td>URL</td>
-     							<td></td>
+     							<td class="t"></td>
     						</tr>
 							<tr>
       							<td>描述</td>
-     							<td></td>
+     							<td class="t"></td>
     						</tr>
-    						<tr>
-								<td colspan="2"><div id="login_click2" class="login_click">  
-									<button type="button" class="btn btn-success">更新</button>
-								</div>
-								<div id="login_click1" class="login_click">  
-									<button type="button" class="btn btn-success">取消</button>
-								</div></td>
-								</tr>
+								<td colspan="2">
+								<button type="button" class="btn btn-success" id="gengxin">更新</button>  
+									<button type="button" class="btn btn-success" id="sure">确定</button>
+										<button type="button" class="btn btn-success" id="quxiao">取消</button>
+								</td>
+							</tr>
   						</tbody>
 					</table>
 					
@@ -72,5 +74,8 @@
 			</p>
 		</div>
 	</footer>
+	<link rel="stylesheet" type="text/css" href="../lib/layui/css/layui.css">
+<script type="text/javascript" src="../lib/layui/layui.all.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery-3.1.1.min.js"></script>
 </body>
 </html>

@@ -1,43 +1,6 @@
-function deleteDiv(obj,delete1){
-    delete1.addEventListener('click',function(){
-    if (obj != null)
-        obj.parentNode.removeChild(obj);
-    });
-}
-
-function deleteButton(obj){
-    if (obj != null)
-        obj.parentNode.removeChild(obj);
-}
-
-//删除消息
-function deletexiaoxi(){
-    var myajax;
-    if (window.XMLHttpRequest) {
-        myajax = new XMLHttpRequest();
-    } 
-    else {
-        myajax = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    if(myajax != null){
-        myajax.open("DELETE", "http://rap2api.taobao.org/app/mock/12472//message", true);
-        myajax.onreadystatechange = function () {
-            if (myajax.status == 200){
-                if(myajax.readyState == 4){
-                    var info = myajax.responseText;
-                    info.data = {};
-                }
-            } 
-            else{
-                alert('页面有异常,刷新重试');
-            }
-        }
-        myajax.send();
-    };
-}
-
-//增加消息，被邀请
-function add1(obj1,obj2){
+onload = abc;
+function abc(){
+     var userId = localStorage.getItem('userId');
     var yidu = document.getElementsByClassName("yidu");
     var weidu = document.querySelectorAll('.weidu');
     var delete1 = document.getElementsByClassName('delete1');
@@ -46,18 +9,66 @@ function add1(obj1,obj2){
     var refuse = document.querySelectorAll('.refuse');
     var box2 = document.getElementsByClassName('box2');
 
-    var xmlhttp;
-    if (window.XMLHttpRequest) {
-        xmlhttp = new XMLHttpRequest();
-    } 
-    else {
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    var loading = document.getElementsByClassName('loading');
+    var static = 1;
+    loading[0].onclick = function(){
+        if(static == 1){
+            box2[0].style.cssText = "overflow: visible; max-height: 100%;";
+            loading[0].innerHTML = "收起消息";
+            static = 0;
+        }
+        else{
+            box2[0].style.cssText = "overflow: hidden; max-height: 120px;";
+            loading[0].innerHTML = "加载更多";
+            static = 1;
+        }       
     }
-    if(xmlhttp != null){
-        xmlhttp.open("POST", "http://rap2api.taobao.org/app/mock/12472//message", true);
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.status == 200){
-                if(xmlhttp.readyState == 4){
+     $.ajax({
+        type:'get',
+        dataType:'json',
+        url: 'http://125.81.59.65:8081/ApiManagementSystem/message/userMessage',
+        data: {
+            "userId":userId,
+        },
+        success: function ( data ) {
+            if (data.status ==200) {
+                var info = data.data;
+                console.log(info);
+                console.log(userId)
+                for(var i=0;i<info.len;i++){
+                    var userName = info[i].userName;
+                    var teamId = info[i].teamName;
+                    add1(userName,teamId);
+                    add2(userName,teamId);
+                }
+             }
+
+        },
+        error: function (data) {
+            alert('error');
+        }
+    })
+}  
+
+// //增加消息，被邀请
+function add1(obj1,obj2){
+    var yidu = document.getElementsByClassName("yidu");
+    var weidu = document.querySelectorAll('.weidu');
+    var delete1 = document.getElementsByClassName('delete1');
+    var agree = document.querySelectorAll('.agree');
+    var tishi1 = document.querySelectorAll('.tishi1');
+    var refuse = document.querySelectorAll('.refuse');
+    var box2 = document.getElementsByClassName('box2');
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: 'http://125.81.59.65:8081/ApiManagementSystem/project/team',
+        data: {
+            "teamId":tId,
+        },
+        success: function ( data ) {
+            if (data.status ==200) {
+                var info = data.data;
                     var newDiv = document.createElement('div');
                     newDiv.className = 'weidu';
                     weidu[0].parentNode.insertBefore(newDiv,weidu[0]);
@@ -110,14 +121,70 @@ function add1(obj1,obj2){
                     newButton2.onclick = function(){
                         onclick2("已拒绝");
                     }
-                }
-            } 
-            else{
-                alert('页面有异常,刷新重试');
-            }
+             }
+
+        },
+        error: function (data) {
+            alert('error');
         }
-        xmlhttp.send(null);
-    }; 
+    })
+}
+// function read(){
+//     var myajax;
+//     if (window.XMLHttpRequest) {
+//         myajax = new XMLHttpRequest();
+//     } 
+//     else {
+//         myajax = new ActiveXObject("Microsoft.XMLHTTP");
+//     }
+//     if(myajax != null){
+//         myajax.open("GET", "http://rap2api.taobao.org/app/mock/12472//message", true);
+//         myajax.onreadystatechange = function () {
+//             if (myajax.status == 200){
+//                 console.log(myajax.status);
+//                 if(myajax.readyState == 4){
+//                         console.log(myajax.responseText);
+//                 }                        
+//             }
+//             else{
+//                     alert('页面有异常,刷新重试');
+//             }
+//         };
+//         myajax.send();
+//     }
+// }
+
+function deleteDiv(obj,delete1){
+    delete1.addEventListener('click',function(){
+    if (obj != null)
+        obj.parentNode.removeChild(obj);
+    });
+}
+
+function deleteButton(obj){
+    if (obj != null)
+        obj.parentNode.removeChild(obj);
+}
+
+//删除消息
+function deletexiaoxi(){
+    $.ajax({
+        type: 'DELETE',
+        dataType: 'json',
+        url: 'http://125.81.59.65:8081/ApiManagementSystem/project/team',
+        data: {
+            "teamId":tId,
+        },
+        success: function ( data ) {
+            if (data.status ==200) {
+                var info = data.data;
+             }
+
+        },
+        error: function (data) {
+            alert('error');
+        }
+    })
 }
 
 //增加消息，加入团队
@@ -203,83 +270,5 @@ function add2(obj1,obj2){
         xmlhttp.send(null);
     }; 
 }
-
-//读消息
-function read(){
-    var myajax;
-    if (window.XMLHttpRequest) {
-        myajax = new XMLHttpRequest();
-    } 
-    else {
-        myajax = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    if(myajax != null){
-        myajax.open("GET", "http://rap2api.taobao.org/app/mock/12472//message", true);
-        myajax.onreadystatechange = function () {
-            if (myajax.status == 200){
-                console.log(myajax.status);
-                if(myajax.readyState == 4){
-                        console.log(myajax.responseText);
-                }                        
-            }
-            else{
-                    alert('页面有异常,刷新重试');
-            }
-        };
-        myajax.send();
-    }
-}
     
 
-onload = abc;
-
-function abc(){
-    var yidu = document.getElementsByClassName("yidu");
-    var weidu = document.querySelectorAll('.weidu');
-    var delete1 = document.getElementsByClassName('delete1');
-    var agree = document.querySelectorAll('.agree');
-    var tishi1 = document.querySelectorAll('.tishi1');
-    var refuse = document.querySelectorAll('.refuse');
-    var box2 = document.getElementsByClassName('box2');
-
-    var loading = document.getElementsByClassName('loading');
-    var static = 1;
-    loading[0].onclick = function(){
-        if(static == 1){
-            box2[0].style.cssText = "overflow: visible; max-height: 100%;";
-            loading[0].innerHTML = "收起消息";
-            static = 0;
-        }
-        else{
-            box2[0].style.cssText = "overflow: hidden; max-height: 120px;";
-            loading[0].innerHTML = "加载更多";
-            static = 1;
-        }       
-    }
-//显示消息列表
-    var myajax;
-    if (window.XMLHttpRequest) {
-        myajax = new XMLHttpRequest();
-    } 
-    else {
-        myajax = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    if(myajax != null){
-        myajax.open("GET", "http://rap2api.taobao.org/app/mock/12472//message/userMessage", true);
-        myajax.onreadystatechange = function () {
-            if (myajax.status == 200){
-                if(myajax.readyState == 4){
-                    var info = JSON.parse(myajax.responseText);
-                    for(i=0;i<info.data.length;i++){
-                        add1(info.data[i].userName,info.data[i].teamName);
-                        add2(info.data[i].userName,info.data[i].teamName);
-                    }                      
-                }
-            }
-            else{
-                alert('页面有异常,刷新重试');
-            }
-        }
-        myajax.send();
-      };
-}  

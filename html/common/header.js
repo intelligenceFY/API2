@@ -31,7 +31,7 @@ const headerTpl = () => {
     /*
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
-			<a href="#" class="navbar-brand"><strong class="pagename">API Management</strong></a>
+			<a href="zhuye.html" class="navbar-brand"><strong class="pagename">API Management</strong></a>
 			<ul class="nav navbar-nav navbar-left">
 				<li><a href="my_group.html">我的团队</a></li>
 				<li><a href="myproject.html">我的项目</a></li>
@@ -45,6 +45,9 @@ const headerTpl = () => {
                 <ul class="dropdown-menu">
                     <li><a href="introduction.html">我的资料</a></li>
                     <li><a href="myproject.html">我的项目</a></li>
+                    <li><a href="my_group.html">我的团队</a></li>
+                    <li><a href="login.html">退出</a></li>
+
                 </ul>
 				</li>
 				<li><a href="xiaoxi.html">消息<span class="glyphicon glyphicon-bell"></span></a></li>

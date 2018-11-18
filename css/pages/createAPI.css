@@ -71,11 +71,10 @@ select{
 .btn-success{
 	width: 80px;
 }
-#login_click1{
+#button2{
 	float: left;
 	margin-right: 70px;
 	display: none;
-
 }
 footer{
 	background-color: #ccc;

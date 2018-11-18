@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="./common/header.js" data-css="createAPI" data-title="createAPI"></script>
 	<script type="text/javascript" src="../js/lib/jquery-3.1.1.min.js"></script>
 </head>
-<body onload="ajax()">
+<body>
 	<div id="box1">
 		<div class="container">
 			<div class="row">
@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col-md-8 text">
 					<h2> 编辑接口</h2>
-					<textarea cols="50" placeholder="代码！">
+					<textarea id=text cols="50" placeholder="代码！">
 						
 					</textarea>
 
@@ -36,7 +36,10 @@
   						<tbody>
     						<tr>
       							<td>名称</td>
-     							<td></td>
+     							<td id="mingcheng" class="t">
+     								<input type="text" id="mingcheng1">
+     							</td>
+     							<span id="comfirm1" style="font-size: 12px;line-height: 20px;float: left;display: block;"></span>
     						</tr>
     						<tr>
 								<td>方式</td>
@@ -44,18 +47,20 @@
 							</tr>
 							<tr>
       							<td>URL</td>
-     							<td></td>
+     							<td id="url" class="t"><input type="text" id="url1"></td>
+     							<span id="comfirm2" style="font-size: 12px;line-height: 20px;float: left;display: block;"></span>
     						</tr>
 							<tr>
       							<td>描述</td>
-     							<td></td>
+     							<td id="miaoshu" class="t"><input type="text" id="miaoshu1"></td>
+     							<span id="comfirm3" style="font-size: 12px;line-height: 20px;float: left;display: block;"></span>
     						</tr>
     						<tr>
 								<td colspan="2"><div id="login_click2" class="login_click">  
-									<button type="button" class="btn btn-success">创建</button>
+									<button type="button" id="button1" class="btn btn-success" onclick="chuangjian()">新建</button>
 								</div>
 								<div id="login_click1" class="login_click">  
-									<button type="button" class="btn btn-success">取消</button>
+									<button type="button" id="button2" class="btn btn-success">取消</button>
 								</div></td>
 								</tr>
   						</tbody>

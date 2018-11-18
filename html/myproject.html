@@ -5,6 +5,7 @@
 	<title>Myproject</title>
 	<link rel="icon" href="../images/A_52px.png" type="image/x-icon">
 	<script type="text/javascript" src="./common/header.js" data-css="myproject" data-title="myproject"></script>
+	<script type="text/javascript" src="../js/lib/jquery-3.1.1.min.js"></script>
 
 </head>
 <body onload="ajax()">
@@ -14,7 +15,7 @@
 			<div class="row">
 				<div class="container-fluid">
 					<div class="col-md-12 col-xs-12">
-						<a href="#" class="btn btn-default" id="chuangjian" role="button"><span class="glyphicon glyphicon-book"></span> 创建项目</a>
+						<a href="#" class="btn btn-default" id="chuangjian" role="button" onclick="show('popupdiv')"><span class="glyphicon glyphicon-book"></span> 创建项目</a>
 					</div>
 					
 				</div>
@@ -23,189 +24,12 @@
 	</div>
 	<!-- 主题部分之二 项目展示 -->
 	<div id="case">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-4 col-xs-7 clo-sm-6">
-					<div class="thumbnail">
-						<div class="row">
-							<div class="col-md-12 information1">
-								<span class="number">
-									<img src="../images/bianhao.png"> 个人编号 
-								</span>
-								<span class="glyphicon glyphicon-trash" ></span>
-								<span class="glyphicon glyphicon-pencil"></span>
-							</div>
-							<div class="col-md-12 information2">
-								<a href="#">
-									<span><img src="../images/name_16.png"> 名称dadasdas </span>
-								</a>
-							</div>
-							<div class="caption">
-								<button class="btn btn-info">查看个人项目</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-xs-7 clo-sm-6">
-					<div class="thumbnail">
-						<div class="row">
-							<div class="col-md-12 information1">
-								<span class="number">
-									<img src="../images/bianhao.png"> 个人编号 
-								</span>
-								<span class="glyphicon glyphicon-trash" ></span>
-								<span class="glyphicon glyphicon-pencil"></span>
-							</div>
-							<div class="col-md-12 information2">
-								<a href="#">
-									<span><img src="../images/name_16.png"> 名称dadasdas </span>
-								</a>
-							</div>
-							<div class="caption">
-								<button class="btn btn-info">查看个人项目</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-xs-7 clo-sm-6">
-					<div class="thumbnail">
-						<div class="row">
-							<div class="col-md-12 information1">
-								<span class="number">
-									<img src="../images/bianhao.png"> 个人编号 
-								</span>
-								<span class="glyphicon glyphicon-trash" ></span>
-								<span class="glyphicon glyphicon-pencil"></span>
-							</div>
-							<div class="col-md-12 information2">
-								<a href="#">
-									<span><img src="../images/name_16.png"> 名称dadasdas </span>
-								</a>
-							</div>
-							<div class="caption">
-								<button class="btn btn-info">查看个人项目</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-xs-7 clo-sm-6">
-					<div class="thumbnail">
-						<div class="row">
-							<div class="col-md-12 information1">
-								<span class="number">
-									<img src="../images/bianhao.png"> 个人编号 
-								</span>
-								<span class="glyphicon glyphicon-trash" ></span>
-								<span class="glyphicon glyphicon-pencil"></span>
-							</div>
-							<div class="col-md-12 information2">
-								<a href="#">
-									<span><img src="../images/name_16.png"> 名称dadasdas </span>
-								</a>
-							</div>
-							<div class="caption">
-								<button class="btn btn-info">查看个人项目</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-xs-7 clo-sm-6">
-					<div class="thumbnail">
-						<div class="row">
-							<div class="col-md-12 information1">
-								<span class="number">
-									<img src="../images/bianhao.png"> 个人编号 
-								</span>
-								<span class="glyphicon glyphicon-trash" ></span>
-								<span class="glyphicon glyphicon-pencil"></span>
-							</div>
-							<div class="col-md-12 information2">
-								<a href="#">
-									<span><img src="../images/name_16.png"> 名称dadasdas </span>
-								</a>
-							</div>
-							<div class="caption">
-								<button class="btn btn-info">查看个人项目</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-xs-7 clo-sm-6">
-					<div class="thumbnail">
-						<div class="row">
-							<div class="col-md-12 information1">
-								<span class="number">
-									<img src="../images/bianhao.png"> 个人编号 
-								</span>
-								<span class="glyphicon glyphicon-trash" ></span>
-								<span class="glyphicon glyphicon-pencil"></span>
-							</div>
-							<div class="col-md-12 information2">
-								<a href="#">
-									<span><img src="../images/name_16.png"> 名称dadasdas </span>
-								</a>
-							</div>
-							<div class="caption">
-								<button class="btn btn-info">查看个人项目</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-xs-7 clo-sm-6">
-					<div class="thumbnail">
-						<div class="row">
-							<div class="col-md-12 information1">
-								<span class="number">
-									<img src="../images/bianhao.png"> 个人编号 
-								</span>
-								<span class="glyphicon glyphicon-trash" ></span>
-								<span class="glyphicon glyphicon-pencil"></span>
-							</div>
-							<div class="col-md-12 information2">
-								<a href="#">
-									<span><img src="../images/name_16.png"> 名称dadasdas </span>
-								</a>
-							</div>
-							<div class="caption">
-								<button class="btn btn-info">查看个人项目</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-lg-3 col-md-4 col-xs-7 clo-sm-6">
-					<div class="thumbnail">
-						<div class="row">
-							<div class="col-md-12 information1">
-								<span class="number">
-									<img src="../images/bianhao.png"> 个人编号 
-								</span>
-								<span class="glyphicon glyphicon-trash"></span>
-								<span class="glyphicon glyphicon-pencil"></span>
-							</div>
-							<div class="col-md-12 information2">
-								<a href="#">
-									<span><img src="../images/name_16.png"> 名称dadas刚刚das </span>
-								</a>
-							</div>
-							<div class="caption">
-								<button class="btn btn-info">查看个人项目</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-			</div>		
+		<div class="container" id="box">
+		 <div id="biuuu_city_list">
+  			</div>
+			<div id="demo20"></div>	
 		</div>
 	</div>
-
 		<!-- dibu -->
 	<footer id="footer">
 		<div class="container">
@@ -214,7 +38,64 @@
 			</p>
 		</div>
 	</footer>
-<script src="../js/lib/jquery-3.1.1.min.js"></script>
+	<!-- 弹框 -->
+	<div id="popupdiv" style="display:none;">
+		<a href="javascript:void(0)" onclick="closeDiv('popupdiv')" ><img src="../images/icons8_Delete_16.png"></a>
+		<form>
+			<table>
+				<tr ><th colspan="2"><h2>创建项目</h2></th></tr>
+				<tr>
+					<td colspan="2">
+						<span>项目名称:</span><input type="tetx" name="name3" id="name3">
+						<br><span id="confirm2" style="font-size: 12px;height: 15px;display: block;line-height: 20px;"></span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<span>项目简介:</span><input type="tetx" name="name4" id="name4">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" id="button1" value="创建" onclick="checkall()">
+					</td>
+					<td>
+						<input type="button" id="button2" value="取消" onclick="closeDiv('popupdiv')" >
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id="alert">
+		<a href="javascript:void(0)" onclick="closeDiv('alert')" ><img src="../images/icons8_Delete_16.png"></a>
+		<form id="form">
+			<table>
+				<tr><th colspan="2"><h2>修改个人项目</h2></th></tr>
+				<tr>
+					<td colspan="2">
+						<span>项目名称:</span><span class="t"></span>
+						<br><span id="confirm2" style="font-size: 12px;height: 20px;display: block;line-height: 20px;"></span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<span>项目描述:</span><span class="t"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" class="button1" value="修改">
+					</td>
+					<td>
+						<input type="button" class="button2" value="取消">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+<link rel="stylesheet" type="text/css" href="../lib/layui/css/layui.css">
+<script type="text/javascript" src="../lib/layui/layui.all.js"></script>
 <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>	

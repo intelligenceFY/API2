@@ -3,15 +3,16 @@ function ajax(){
 	projectId = sessionStorage.getItem('p');
 	console.log(projectId);
 }
-function check_name(){
-	var mc = document.getElementById('mingcheng').value;
+function check_name(obj){
 	var comfirm1 = document.getElementById("comfirm1");
 	comfirm1.innerHTML = "";
-	if (mc=="") {
+	if (obj.value=="") {
 		comfirm1.innerHTML = "请输入名称".fontcolor("red");
+		return false;
 	}
-	else if(mc.length>10){
+	else if(obj.length>10){
 		comfirm1.innerHTML = "名称不得超过10字".fontcolor("red");
+		return false;
 	}
 }
 function check_url(){
@@ -41,20 +42,21 @@ function reset(){
 function chuangjian(){
 	var obj=document.getElementById('mySelect');
 	var index=obj.selectedIndex; //序号，取当前选中选项的序号
-	var interfaceName = document.getElementById('mingcheng').value;
+	var interfaceName = document.getElementById('mingcheng1').value;
 	var method = obj.options[index].value;
-	var description = document.getElementById("miaoshu").value;
-	var url = document.getElementById("url").value;
+	var description = document.getElementById("miaoshu1").value;
+	var url = document.getElementById("url1").value;
 	var json = document.getElementById("text").value;
+	projectId = sessionStorage.getItem('p');
+	console.log(interfaceName)
 	$.ajax({
 		type:"post",
 		dataType:"json",
-		url:"http://172.33.10.66:8081/ApiManagementSystem/interface",
+		url:"http://125.81.59.65:8081/ApiManagementSystem/interface",
 		data:{
 			"interfaceName":interfaceName,
 			"method":method,
 			"description":description,
-			"method":method,
 			"json":json,
 			"url":url,
 			"projectId":projectId,
@@ -63,10 +65,11 @@ function chuangjian(){
 			var backdata = result;
 			if (backdata.status==200) {
 				alert("创建成功");
+				sessionStorage.setItem('json', json);
 				window.location.href = 'project1.html';
 			}
 			else{
-				alert(result.message)
+				alert(result.message);
 			}
 
 		},
